@@ -1,13 +1,22 @@
-<%= @list.name %>
-<% @list.bookmarks.each do |bookmark| %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/photos/reel-of-film-picture-id534129330?k=20&m=534129330&s=612x612&w=0&h=1tSgANmWYgbOTnPmIXWVqMLzMZ428nzpjy23CJoCnAo=)">
+  <%= @list.name %>
+</div>
 
-  <p><%= bookmark.movie.title %></p>
-  <p><%= bookmark.comment%></p>
-  <p><%= link_to "delete", bookmark_path(bookmark), method: :delete %>
+<div class="container">
+  <% @list.bookmarks.each do |bookmark| %>
+    <br>
+    <h4><%= bookmark.movie.title %></h4>
+    <br>
 
-<% end %>
+    <p><img src="<%= bookmark.movie.poster_url%>" width="200" height="300" alt=""></p>
+    <p>Commentaire: "<%= bookmark.comment%>"</p>
 
+    <p><%= link_to "delete movie", bookmark_path(bookmark), class:"btn btn-flat", method: :delete %>
 
-<p><%= link_to "add a movie", new_list_bookmark_path(@list.id) %></p>
+  <% end %>
+  <br>
+  <br>
+  <p><%= link_to "add a movie", new_list_bookmark_path(@list.id), class: "btn btn-flat"  %></p>
 
-<p><%= link_to "< go back to main page", lists_path %></p>
+  <p><%= link_to "< go back to main page", root_path %></p>
+</div>

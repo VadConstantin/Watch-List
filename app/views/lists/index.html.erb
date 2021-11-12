@@ -1,10 +1,51 @@
-<h1>Save any kind of movies</h1>
 
-<ul>
-<% @lists.each do |list| %>
-<li><%= link_to list.name, list_path(list.id) %></li>
-<% end %>
 
-<p><%= link_to "create a movie list", new_list_path %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.radiofrance.fr/s3/cruiser-production/2020/12/5b5a3d8d-9654-4ebb-9a99-5f8e6169c6c6/838_gettyimages-108387402.jpg);">
+  <div class="container">
+    <h1>Save any kind of movies !</h1>
+    <p>Check your favorite movies anytime.</p>
+    <a class="btn btn-flat" href="#">Log in</a>
+  </div>
+</div>
 
-</ul>
+<br>
+<br>
+
+<div class="container">
+  <h2 id="h2">My lists</h2>
+    <ul class="taille">
+
+      <% @lists.each do |list| %>
+        <div class="">
+          <div class="card-trip">
+
+            <%= link_to list_path(list.id) do %>
+
+              <%= image_tag("https://media.istockphoto.com/photos/reel-of-film-picture-id534129330?k=20&m=534129330&s=612x612&w=0&h=1tSgANmWYgbOTnPmIXWVqMLzMZ428nzpjy23CJoCnAo=", class: "img-card") %>
+              <% end %>
+
+            <div class="card-trip-infos">
+              <li><%= link_to list.name, list_path(list.id), class: "text-center" %></li>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+
+    </ul>
+
+  <%= link_to "create a movie list", new_list_path, class: "btn btn-flat" %>
+</div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This footer is made with <i class="fas fa-heart"></i> by Vadim
+    </div>
+  </div>
